@@ -20,4 +20,14 @@ describe('GreetingComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should greet the user', () => {
+    //component.user = 'Juan';
+    const compiled = fixture.nativeElement as HTMLElement;
+    const inputElement = compiled.querySelector('input') as HTMLInputElement;
+    inputElement.value = 'Juan';
+    inputElement.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+    expect(compiled.querySelector('p')?.textContent).toContain('Hola Juan!');
+  });
 });
