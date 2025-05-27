@@ -1,24 +1,22 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
-import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    loadComponent: () => import('./home/home.component'),
     title: 'Inicio | Demo 01',
     data: {
       label: 'Inicio',
     },
   },
   {
-    path: 'home',
-    redirectTo: '',
-  },
-  {
     path: 'products',
-    component: ProductsComponent,
+    loadComponent: () => import('./products/products.component'),
     title: 'Lista de Productos | Demo 01',
     data: {
       label: 'Productos',
@@ -26,7 +24,7 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    component: AboutComponent,
+    loadComponent: () => import('./about/about.component'),
     title: 'Acerca de | Demo 01',
     data: {
       label: 'Acerca de',
@@ -34,16 +32,20 @@ export const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'home',
   },
 ];
 
-export const menuOption = routes
+interface MenuOption {
+  label: string;
+  path: string;
+}
+
+export const menuOptions: MenuOption[] = routes
   .filter((route) => route.data)
   .map((route) => {
     return {
-      label: route.data!['label'],
-      path: route.path,
+      label: route.data!['label'] as string,
+      path: route.path as string,
     };
   });
-

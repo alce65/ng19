@@ -1,15 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { GreetingComponent } from "./components/greeting/greeting.component";
+import { WrapperCountersComponent } from "./components/wrapper-counters/wrapper-counters.component";
 
 @Component({
   selector: 'ine-home',
-  imports: [],
+  imports: [GreetingComponent, WrapperCountersComponent],
   template: `
-    <p>
-      home works!
-    </p>
+    <p>Ejemplo de eventos entre componentes</p>
+    <ine-wrapper-counters />
+    <p>Ejemplo de componente con data binding</p>
+    <ine-greeting />
   `,
-  styles: ``
+  styles: ``,
 })
-export class HomeComponent {
+export default class HomeComponent implements OnInit, OnDestroy{
 
+  constructor() {
+    console.log('HomeComponent constructor called');
+  }
+
+  ngOnInit(): void {
+    console.log('HomeComponent initialized');
+  }
+  ngOnDestroy(): void {
+    console.log('HomeComponent destroyed');
+  }
 }

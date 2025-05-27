@@ -10,6 +10,6 @@ import { Component } from '@angular/core';
   `,
   styles: ``
 })
-export class ProductsComponent {
+export default class ProductsComponent {
 
 }
