@@ -1,11 +1,12 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'ine-footer',
-  imports: [],
+  imports: [DatePipe],
   template: `
     <address>
-      <p>© 2024 {{ owner }}. All rights reserved.</p>
+      <p>{{date | date:'fullDate'}} {{ owner }}. All rights reserved.</p>
       <p>
         Contact: <a href="mailto:{{ mail }}">{{ mail }}</a>
       </p>
@@ -16,4 +17,5 @@ import { Component } from '@angular/core';
 export class FooterComponent {
   owner = 'Alejandro Cerezo';
   mail = 'alce65@hotmail.es';
+  date = new Date()
 }
