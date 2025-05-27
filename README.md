@@ -1,59 +1,61 @@
-# Ng19
+# Curso Angular 19
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.13.
+Alejandro Cerezo Lasne
+<alce65@hotmail.es>
+IT Formación para Inetum
+26-30/05/2025
 
-## Development server
+## Día 1 (L-25): Introducción a Angular
 
-To start a local development server, run:
+- Introducción a Angular y su ecosistema.
+- Instalación de Angular CLI.
+- Creación de un nuevo workspace Angular sin proyecto. `ng new`
+- Creación de un nuevo proyecto (app) Angular. `ng generate app`
+- Estructura de un workspace/proyecto Angular.
+- Añadiendo ESLint y Prettier.
+- Angular CLI: Comandos básicos.
+  - Servidor de desarrollo: `ng serve`.
+  - Testing con Karma y Jasmine: `ng test`.
+  - Construcción del proyecto: `ng build`.
+- Generación de componentes: `ng generate`.
+  - Elementos de un componente: HTML, CSS, TypeScript.
+  - Componente Counter. Estado y eventos. Condicionales @If
+  - Componente Greeting. Input de usuario: data binding.
+- Scaffolding. Core y Features
+  - Componente Header.
+  - Componente Footer.
+  - Componentes (pages): Home, About, Contact.
+- Rutas básicas. `app.routes.ts`
+  - Array de rutas.
+  - Array de opciones de menu
 
-```bash
-ng serve
-```
+## Día 2 (M-26): Rutas y Componentes
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Rutas (continuación)
+  - RouterOutlet en AppComponent.
+  - Navegación. Componente menu. @for
+  - SPA: RouterLink y RouterLinkActive
+- Rutas Lazy. Default import en las páginas
+- Componente Layout. Reorganización de core components
+- Reorganización componentes en Home
+- Testing de componentes
+  - Configuración de Karma y Jasmine.
+  - Coverage istambul
+  - Creación de pruebas unitarias para componentes.
+- Pipes. Location "es"
+- Logo. Componentes de template svg
+- Comunicación entre componentes
+  - Input. Decoradores @Input. Drilling del título
+  - Output. Decorador @Output. EventEmitter
+  - Agrupando contadores.
 
-## Code scaffolding
+## Día 2 (M-26). Arquitectura de componentes. Servicios
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+<!--
+- Debugging
+- Comunicación entre componentes (continuación)
+  - Contadores. Eventos con valor
+- Arquitectura de componentes
+  - Componentes de presentación vs contenedores.
+  - Componentes inteligentes vs tontos.
+-->
