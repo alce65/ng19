@@ -37,7 +37,7 @@ IT Formación para Inetum
   - SPA: RouterLink y RouterLinkActive
 - Rutas Lazy. Default import en las páginas
 - Componente Layout. Reorganización de core components
-- Reorganización componentes en Home
+- RTemeorganización componentes en Home
 - Testing de componentes
   - Configuración de Karma y Jasmine.
   - Coverage istambul
@@ -49,13 +49,13 @@ IT Formación para Inetum
   - Output. Decorador @Output. EventEmitter
   - Agrupando contadores.
 
-## Día 2 (M-26). Arquitectura de componentes. Servicios
+## Día 3 (M-26). Arquitectura de componentes. Servicios
 
-<!--
 - Debugging
+- Template svg
 - Comunicación entre componentes (continuación)
   - Contadores. Eventos con valor
+  - Testing de componentes con comunicación.
 - Arquitectura de componentes
   - Componentes de presentación vs contenedores.
   - Componentes inteligentes vs tontos.
--->

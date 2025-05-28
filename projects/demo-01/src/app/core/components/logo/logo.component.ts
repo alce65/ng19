@@ -11,4 +11,8 @@ export class LogoComponent {
   size = '2.5rem';
   upperColor = '#a52a2a';
   downColor = '#666';
+
+  handleClick(source: string) {
+    console.log('Logo clicked from:', source);
+  }
 }
