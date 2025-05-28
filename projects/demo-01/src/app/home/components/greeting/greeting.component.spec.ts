@@ -30,4 +30,14 @@ describe('GreetingComponent', () => {
     fixture.detectChanges();
     expect(compiled.querySelector('p')?.textContent).toContain('Hola Juan!');
   });
+
+  it('should delete the user', () => {
+    component.user = 'Juan';
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const buttonElement = compiled.querySelector('button') as HTMLButtonElement;
+    buttonElement.click();
+    fixture.detectChanges();
+    expect(compiled.querySelector('p')?.textContent).toContain('Hola amigo!');
+  });
 });

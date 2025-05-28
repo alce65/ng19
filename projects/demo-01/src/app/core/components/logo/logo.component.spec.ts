@@ -20,4 +20,12 @@ describe('LogoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+
+  it('should handle click event', () => {
+    spyOn(console, 'log');
+    component.handleClick('testSource');
+    expect(console.log).toHaveBeenCalledWith('Logo clicked from:', 'testSource');
+  });
+
 });

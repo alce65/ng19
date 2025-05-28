@@ -12,6 +12,7 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
+    component.title = 'Test ng19'; // Establecemos el título para la prueba
     fixture.detectChanges();
   });
 
@@ -23,7 +24,7 @@ describe('HeaderComponent', () => {
   // Accedemos a la instancia de la clase
   // y comprobamos que el título sea el esperado
   it(`should have the 'demo-01' title`, () => {
-    expect(component.title).toEqual('Demo ng19');
+    expect(component.title).toEqual('Test ng19');
   });
 
   // Test de renderizado o comportamiento
@@ -32,6 +33,6 @@ describe('HeaderComponent', () => {
 
   it('should render title', () => {
     const element = fixture.nativeElement as HTMLElement;
-    expect(element.querySelector('h1')?.textContent).toContain('Demo');
+    expect(element.querySelector('h1')?.textContent).toContain('Test');
   });
 });

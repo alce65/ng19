@@ -29,7 +29,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CounterComponent {
   @Input({ required: true }) index!: number;
 
-  @Output() makeClick = new EventEmitter<void>();
+  @Output() makeClick = new EventEmitter<number>();
 
   count = 0;
 
@@ -37,10 +37,11 @@ export class CounterComponent {
     if (this.count === 5 && value > 0) return;
     if (this.count === -5 && value < 0) return;
     this.count += value;
-    this.makeClick.emit();
+    this.makeClick.emit(this.count);
   }
 
   reset() {
     this.count = 0;
+    this.makeClick.emit(this.count);
   }
 }
