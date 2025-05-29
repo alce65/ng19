@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { Task } from '../types/task';
 
-const TASKS: Task[] = [
+export const TASKS: Task[] = [
   {
     id: crypto.randomUUID(),
     title: 'Comprar pan',
