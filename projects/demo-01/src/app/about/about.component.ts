@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { TimeService } from '../core/services/time.service';
+import { ContactComponent } from "./components/contact/contact.component";
 
 @Component({
   selector: 'ine-about',
-  imports: [],
+  imports: [ContactComponent],
   providers: [
     // {
     //   provide: TimeService,
@@ -17,6 +18,7 @@ import { TimeService } from '../core/services/time.service';
     <p>
       {{ ts.getTime() }}
     </p>
+    <ine-contact />
   `,
   styles: ``,
 })
