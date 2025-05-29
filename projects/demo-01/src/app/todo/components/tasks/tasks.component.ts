@@ -1,9 +1,16 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { Task, TaskDTO } from '../../types/task';
-import { getTasks } from '../../data/tasks';
+
 import { TaskCreateComponent } from '../task-create/task-create.component';
+import { InMemoryRxRepositoryService } from '../../services/in-memory-rx-repository.service';
 
 @Component({
   selector: 'ine-tasks',
@@ -46,14 +53,17 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   @ViewChild('detail') detailsElement!: ElementRef<HTMLDetailsElement>;
 
+  repo = inject(InMemoryRxRepositoryService);
+
   ngOnInit(): void {
     this.loadTasks();
   }
 
   loadTasks() {
-    getTasks().subscribe((tasks) => {
+    this.repo.getAll().subscribe((tasks) => {
       this.tasks = tasks;
-      console.log(this.tasks);
+      console.log('Component', this.tasks);
+      console.log('Repo', this.repo.items);
     });
   }
 
@@ -67,26 +77,58 @@ export class TasksComponent implements OnInit {
   }
 
   createTask(dataTask: TaskDTO) {
-    const task: Task = {
-      id: crypto.randomUUID(),
-      isCompleted: false,
-      ...dataTask,
-    };
-    this.tasks.push(task);
-    console.log(this.tasks);
-    this.closeDetails();
+    // asincrono: Repositorio
+
+    this.repo.add(dataTask).subscribe((task) => {
+      if (task.length === 0) {
+        console.error('Error al crear la tarea');
+      } else {
+        // sincrono: Componente (State) de form no optimista
+        this.tasks.push(task[0]);
+      }
+
+      this.closeDetails();
+      console.log('Component', this.tasks);
+      console.log('Repo', this.repo.items);
+    });
   }
 
   deleteTask(taskId: Task['id']) {
-    this.tasks = this.tasks.filter((task) => task.id !== taskId);
-    console.log(this.tasks);
+    this.repo.delete(taskId).subscribe({
+      next: (deletedTasks) => {
+        if (deletedTasks.length === 0) {
+          console.error('Error al crear la tarea');
+          return;
+        }
+        this.tasks = this.tasks.filter(
+          (task) => task.id !== deletedTasks[0].id,
+        );
+      },
+      complete: () => {
+        console.log('Component', this.tasks);
+        console.log('Repo', this.repo.items);
+      },
+    });
   }
 
   updateTask(task: Task) {
-    const index = this.tasks.findIndex((t) => t.id === task.id);
-    if (index !== -1) {
-      this.tasks[index] = task;
-    }
-    console.log(this.tasks);
+    const { id, ...data } = task;
+    this.repo.update(id, data).subscribe({
+      next: (updatedTasks) => {
+        if (updatedTasks.length === 0) {
+          console.error('Error al actualizar la tarea');
+          return;
+        }
+        // sincrono: Componente (State) de form no optimista
+        const index = this.tasks.findIndex((t) => t.id === id);
+        if (index !== -1) {
+          this.tasks[index] = updatedTasks[0];
+        }
+      },
+      complete: () => {
+        console.log('Component', this.tasks);
+        console.log('Repo', this.repo.items);
+      },
+    });
   }
 }
