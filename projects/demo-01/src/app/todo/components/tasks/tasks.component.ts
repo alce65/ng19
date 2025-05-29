@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 import { TaskItemComponent } from '../task-item/task-item.component';
 import { Task, TaskDTO } from '../../types/task';
@@ -42,16 +42,29 @@ import { TaskCreateComponent } from '../task-create/task-create.component';
     }
   `,
 })
-export class TasksComponent {
+export class TasksComponent implements OnInit {
   tasks: Task[] = [];
+  @ViewChild('detail') detailsElement!: ElementRef<HTMLDetailsElement>;
 
-  constructor() {
+  ngOnInit(): void {
+    this.loadTasks();
+  }
+
+  loadTasks() {
     getTasks().subscribe((tasks) => {
       this.tasks = tasks;
       console.log(this.tasks);
     });
   }
-  //
+
+  private closeDetails() {
+    // Cerrar el details
+    //const detailsElement = document.querySelector('details.add-task');
+    const detailsElement = this.detailsElement.nativeElement;
+    if (detailsElement) {
+      detailsElement.removeAttribute('open');
+    }
+  }
 
   createTask(dataTask: TaskDTO) {
     const task: Task = {
@@ -61,11 +74,7 @@ export class TasksComponent {
     };
     this.tasks.push(task);
     console.log(this.tasks);
-    // Cerrar el details
-    const detailsElement = document.querySelector('details.add-task');
-    if (detailsElement) {
-      detailsElement.removeAttribute('open');
-    }
+    this.closeDetails();
   }
 
   deleteTask(taskId: Task['id']) {

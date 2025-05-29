@@ -1,15 +1,14 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { TaskDTO } from '../../types/task';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'ine-task-create',
-  imports: [FormsModule, JsonPipe],
+  imports: [FormsModule],
   template: `
     <div class="task-create">
       <h2>Crear nueva tarea</h2>
-      <form (submit)="handleClick()" #taskForm="ngForm">
+      <form (submit)="handleSubmit( taskForm)" #taskForm="ngForm">
         <label>
           <span>Título:</span>
           <input
@@ -17,7 +16,7 @@ import { JsonPipe } from '@angular/common';
             name="title"
             required
             placeholder="Título de la tarea"
-            [(ngModel)]="taskData.title"
+            ngModel
             #titleInput="ngModel"
           />
         </label>
@@ -30,7 +29,7 @@ import { JsonPipe } from '@angular/common';
           <textarea
             placeholder="Descripción de la tarea"
             name="description"
-            [(ngModel)]="taskData.description"
+            ngModel
           ></textarea>
         </label>
 
@@ -49,13 +48,14 @@ import { JsonPipe } from '@angular/common';
 })
 export class TaskCreateComponent {
   @Output() createTask = new EventEmitter<TaskDTO>();
-  taskData: TaskDTO = {
-    title: '',
-    description: '',
-  };
+  //  = {
+  //   title: '',
+  //   description: '',
+  // };
 
-  handleClick() {
-    this.createTask.emit(this.taskData);
-    this.taskData = { title: '', description: '' }; // Reset form
+  handleSubmit(taskForm: NgForm) {
+    this.createTask.emit(taskForm.value);
+    // Reset form
+    taskForm.resetForm();
   }
 }

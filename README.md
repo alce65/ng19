@@ -5,7 +5,7 @@ Alejandro Cerezo Lasne
 IT Formación para Inetum
 26-30/05/2025
 
-## Día 1 (L-25): Introducción a Angular
+## Día 1 (L-26): Introducción a Angular
 
 - Introducción a Angular y su ecosistema.
 - Instalación de Angular CLI.
@@ -29,7 +29,7 @@ IT Formación para Inetum
   - Array de rutas.
   - Array de opciones de menu
 
-## Día 2 (M-26): Rutas y Componentes
+## Día 2 (M-27): Rutas y Componentes
 
 - Rutas (continuación)
   - RouterOutlet en AppComponent.
@@ -49,7 +49,7 @@ IT Formación para Inetum
   - Output. Decorador @Output. EventEmitter
   - Agrupando contadores.
 
-## Día 3 (M-26). Arquitectura de componentes. Servicios
+## Día 3 (X-28). Arquitectura de componentes. Servicios
 
 - Debugging
 - Template svg
@@ -59,3 +59,8 @@ IT Formación para Inetum
 - Arquitectura de componentes
   - Componentes de presentación vs contenedores.
   - Componentes inteligentes vs tontos.
+- Ejemplo: ToDo List
+  - Entidad ToDo. Modelo y mock de datos (RxJs).
+  - Componente Tasks. Lógica del estado
+  - Componente TodoItem. Input y Output (Eventos)
+  - Componente TodoCreate. Output (Eventos). Forms
