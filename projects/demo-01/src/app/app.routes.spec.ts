@@ -4,7 +4,7 @@ describe('Routes', () => {
   it('should have a routes array', () => {
     expect(routes).toBeDefined();
     expect(Array.isArray(routes)).toBe(true);
-    expect(routes.length).toBe(5);
+    expect(routes.length).toBe(6);
     expect(routes[0].path).toBe('');
 
     expect(routes[0].redirectTo).toBe('home');
@@ -17,6 +17,6 @@ describe('Routes', () => {
 
     expect(menuOptions).toBeDefined();
     expect(Array.isArray(menuOptions)).toBe(true);
-    expect(menuOptions.length).toBe(3);
+    expect(menuOptions.length).toBe(4);
   });
 });

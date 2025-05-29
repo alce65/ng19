@@ -15,6 +15,14 @@ export const routes: Routes = [
     },
   },
   {
+    path: 'todo',
+    loadComponent: () => import('./todo/todo.component'),
+    title: 'Lista de Tareas | Demo 01',
+    data: {
+      label: 'Tareas',
+    },
+  },
+  {
     path: 'products',
     loadComponent: () => import('./products/products.component'),
     title: 'Lista de Productos | Demo 01',
