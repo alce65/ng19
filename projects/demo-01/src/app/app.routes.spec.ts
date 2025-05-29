@@ -12,7 +12,7 @@ describe('Routes', () => {
     expect(routes[1].path).toBe('home');
     expect(routes[1].loadComponent).toBeDefined();
     expect(routes[1].data).toBeDefined();
-    expect(routes[2].path).toBe('products');
+    expect(routes[2].path).toBe('todo');
     expect(routes[2].loadComponent).toBeDefined();
 
     expect(menuOptions).toBeDefined();

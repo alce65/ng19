@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { LogoComponent } from '../logo/logo.component';
+import { TimeService } from '../../services/time.service';
 
 @Component({
   selector: 'ine-header',
@@ -8,6 +9,7 @@ import { LogoComponent } from '../logo/logo.component';
     <header>
       <h1><ine-logo /> {{ title }}</h1>
       <p>Curso de Angular Mayo 2025</p>
+      <p>{{ts.getTime()}}</p>
       <ng-content></ng-content>
     </header>
   `,
@@ -15,6 +17,10 @@ import { LogoComponent } from '../logo/logo.component';
 })
 export class HeaderComponent {
   @Input() title = 'Demo';
+  ts: TimeService
+  constructor(ts: TimeService) {
+    this.ts = ts;
+  }
 }
 
 // const c = new HeaderComponent();

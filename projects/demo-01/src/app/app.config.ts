@@ -5,6 +5,7 @@ import localeEs from '@angular/common/locales/es'
 import { routes } from './app.routes';
 import { registerLocaleData } from '@angular/common';
 
+
 registerLocaleData(localeEs, 'es');
 
 export const appConfig: ApplicationConfig = {
@@ -14,6 +15,10 @@ export const appConfig: ApplicationConfig = {
     {
       provide: LOCALE_ID,
       useValue: 'es'
-    }
+    },
+    // {
+    //   provide: TimeService,
+    //   useClass: TimeService
+    // }
   ]
 };

@@ -1,15 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TimeService } from '../core/services/time.service';
 
 @Component({
   selector: 'ine-about',
   imports: [],
+  providers: [
+    // {
+    //   provide: TimeService,
+    //   useValue: { getTime: () => 'Hola, no se el tiempo' }
+    // }
+     TimeService
+  
+  ],
   template: `
+    <p>about works!</p>
     <p>
-      about works!
+      {{ ts.getTime() }}
     </p>
   `,
-  styles: ``
+  styles: ``,
 })
 export default class AboutComponent {
-
+  ts = inject(TimeService);
 }
