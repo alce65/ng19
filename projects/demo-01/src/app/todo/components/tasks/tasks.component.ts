@@ -10,7 +10,7 @@ import { TaskItemComponent } from '../task-item/task-item.component';
 import { Task, TaskDTO } from '../../types/task';
 
 import { TaskCreateComponent } from '../task-create/task-create.component';
-import { InMemoryRxRepositoryService } from '../../services/in-memory-rx-repository.service';
+import { ApiRxRepositoryService } from '../../services/api-rx-repository.service';
 
 @Component({
   selector: 'ine-tasks',
@@ -53,7 +53,7 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   @ViewChild('detail') detailsElement!: ElementRef<HTMLDetailsElement>;
 
-  repo = inject(InMemoryRxRepositoryService);
+  repo = inject(ApiRxRepositoryService);
 
   ngOnInit(): void {
     this.loadTasks();
