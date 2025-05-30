@@ -1,13 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { LogoComponent } from '../logo/logo.component';
 import { TimeService } from '../../services/time.service';
+import { BadgetComponent } from "../badget/badget.component";
 
 @Component({
   selector: 'ine-header',
-  imports: [LogoComponent],
+  imports: [LogoComponent, BadgetComponent],
   template: `
     <header>
-      <h1><ine-logo /> {{ title }}</h1>
+      <h1><ine-logo /> {{ title }}
+      <ine-badget />
+      </h1>
       <p>Curso de Angular Mayo 2025</p>
       <p>{{ts.getTime()}}</p>
       <ng-content></ng-content>

@@ -60,10 +60,15 @@ export class TasksComponent implements OnInit {
   }
 
   loadTasks() {
-    this.repo.getAll().subscribe((tasks) => {
-      this.tasks = tasks;
-      console.log('Component', this.tasks);
-      console.log('Repo', this.repo.items);
+    this.repo.getAll().subscribe({
+      next: (tasks) => {
+        this.tasks = tasks;
+        // console.log('Component', this.tasks);
+        // console.log('Repo', this.repo.items);
+      },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 
@@ -88,8 +93,8 @@ export class TasksComponent implements OnInit {
       }
 
       this.closeDetails();
-      console.log('Component', this.tasks);
-      console.log('Repo', this.repo.items);
+      // console.log('Component', this.tasks);
+      // console.log('Repo', this.repo.items);
     });
   }
 
@@ -104,10 +109,10 @@ export class TasksComponent implements OnInit {
           (task) => task.id !== deletedTasks[0].id,
         );
       },
-      complete: () => {
-        console.log('Component', this.tasks);
-        console.log('Repo', this.repo.items);
-      },
+      // complete: () => {
+      //   console.log('Component', this.tasks);
+      //   console.log('Repo', this.repo.items);
+      // },
     });
   }
 
@@ -125,10 +130,10 @@ export class TasksComponent implements OnInit {
           this.tasks[index] = updatedTasks[0];
         }
       },
-      complete: () => {
-        console.log('Component', this.tasks);
-        console.log('Repo', this.repo.items);
-      },
+      // complete: () => {
+      //   console.log('Component', this.tasks);
+      //   console.log('Repo', this.repo.items);
+      // },
     });
   }
 }
