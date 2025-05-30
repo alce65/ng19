@@ -49,7 +49,7 @@ IT Formación para Inetum
   - Output. Decorador @Output. EventEmitter
   - Agrupando contadores.
 
-## Día 3 (X-28). Arquitectura de componentes. Servicios
+## Día 3 (X-28). Arquitectura de componentes. Formularios TD
 
 - Debugging
 - Template svg
@@ -63,4 +63,22 @@ IT Formación para Inetum
   - Entidad ToDo. Modelo y mock de datos (RxJs).
   - Componente Tasks. Lógica del estado
   - Componente TodoItem. Input y Output (Eventos)
-  - Componente TodoCreate. Output (Eventos). Forms
+  - Componente TodoCreate. Output (Eventos). Forms Template Driven (TD)
+  
+## Día 4 (J-29). Servicios. Providers e injectors. Formularios DD
+
+- Forms TD (review)
+- Introducción a los servicios en Angular.
+- Servicios y Providers. DI (Dependency Injection)
+  - Creación de un servicio: TimeServer
+  - Provider root v. provider en un componente
+- Servicios y patrón Repository
+  - Servicio InMemoryTaskRepository. Mock de datos.
+  - Uso de promesas y observables (RxJs)
+  - Testing de servicios.
+  - Uso en los componentes. Inyección de dependencias.
+  - Repositorio y lógica de negocio (estado). Estrategias
+  - Estrategia no optimista 1 repositorio / 2 estado
+- Formularios reactivos (DD)
+
+## Día 5 (V-30). Servicios HTTP
