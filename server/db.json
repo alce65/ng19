@@ -4,19 +4,14 @@
       "id": "1-1-1-1-1",
       "title": "Task 1",
       "description": "Description for Task 1",
-      "'isCompleted": false
+      "'isCompleted": false,
+      "isCompleted": true
     },
     {
       "id": "2-2-2-2-2",
       "title": "Task 2",
       "description": "Description for Task 2",
-      "isCompleted": true
-    },
-    {
-      "id": "b4f0",
-      "title": "Algo",
-      "description": "Hacer algo",
-      "isCompleted": true
+      "isCompleted": false
     }
   ],
   "users": [

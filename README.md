@@ -64,7 +64,7 @@ IT Formación para Inetum
   - Componente Tasks. Lógica del estado
   - Componente TodoItem. Input y Output (Eventos)
   - Componente TodoCreate. Output (Eventos). Forms Template Driven (TD)
-  
+
 ## Día 4 (J-29). Servicios. Providers e injectors. Formularios DD
 
 - Forms TD (review)
@@ -82,3 +82,18 @@ IT Formación para Inetum
 - Formularios reactivos (DD)
 
 ## Día 5 (V-30). Servicios HTTP
+
+- Formularios reactivos (review). Mensajes de validación
+- Introducción a los servicios HTTP en Angular.ç
+- Servicio fake basado en JSONServer.
+  - Prueba con Postman
+- Servicio HttpClientModule. Observables (RxJs).
+  - Creación de un ApiRepositoryService.
+  - Configuración del servicio HTTP: provider
+  - Uso desde la feature Tasks.
+- Servicios stateful: patrón Flux
+  - Estado con RxJS: Subjects
+  - Clonado de ToDo como ToDo-Flux
+  - Uso del estado desde los componentes ToDo...
+  - Uso desde cualquier parte de la aplicación.
+- Signals. Ejemplo sencillo (counter)
