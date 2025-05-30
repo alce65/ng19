@@ -22,6 +22,14 @@ export const routes: Routes = [
       label: 'Tareas',
     },
   },
+    {
+    path: 'todo-flux',
+    loadComponent: () => import('./todo-flux/todo.component'),
+    title: 'Lista de Tareas Flux | Demo 01',
+    data: {
+      label: 'Tareas Flux',
+    },
+  },
   {
     path: 'products',
     loadComponent: () => import('./products/products.component'),
