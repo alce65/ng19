@@ -37,7 +37,7 @@ IT Formación para Inetum
   - SPA: RouterLink y RouterLinkActive
 - Rutas Lazy. Default import en las páginas
 - Componente Layout. Reorganización de core components
-- RTemeorganización componentes en Home
+- Reorganización componentes en Home
 - Testing de componentes
   - Configuración de Karma y Jasmine.
   - Coverage istambul
